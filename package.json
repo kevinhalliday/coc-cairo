@@ -1,8 +1,9 @@
 {
   "name": "coc-cairo",
-  "version": "0.0.0-development",
-  "description": "A CoC extension for Cairo",
+  "version": "0.0.1",
+  "description": "A coc.nvim wrapper for the Cairo language server",
   "author": "Kevin Halliday <halliday.kevin7@gmail.com>",
+  "repository": "https://github.com/kevinhalliday/coc-cairo",
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
