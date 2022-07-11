@@ -18,11 +18,6 @@
     "build": "node esbuild.js",
     "prepare": "node esbuild.js"
   },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 120,
-    "semi": true
-  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
