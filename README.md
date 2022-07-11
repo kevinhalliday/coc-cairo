@@ -1,18 +1,10 @@
 # coc-cairo
 
-A CoC extension for Cairo
+A CoC extension for Cairo. This is extension is light wrappper around [cairo-ls](https://github.com/ericglau/cairo-ls).
 
 ## Install
 
 `:CocInstall coc-cairo`
-
-## Keymaps
-
-`nmap <silent> <C-l> <Plug>(coc-coc-cairo-keymap)`
-
-## Lists
-
-`:CocList demo_list`
 
 ## License
 
