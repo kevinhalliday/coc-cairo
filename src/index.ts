@@ -1,54 +1,36 @@
-import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim';
-import DemoList from './lists';
+import path from 'path'
+import {
+  services,
+  workspace,
+  ServerOptions,
+  LanguageClientOptions,
+  ExtensionContext,
+  LanguageClient,
+} from 'coc.nvim'
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  window.showMessage(`coc-cairo works!`);
+  const config = workspace.getConfiguration('cairo')
+  const enabled = config.get<boolean>('enabled', true)
 
-  context.subscriptions.push(
-    commands.registerCommand('coc-cairo.Command', async () => {
-      window.showMessage(`coc-cairo Commands works!`);
-    }),
+  if (!enabled) return
 
-    listManager.registerList(new DemoList(workspace.nvim)),
-
-    sources.createSource({
-      name: 'coc-cairo completion source', // unique id
-      doComplete: async () => {
-        const items = await getCompletionItems();
-        return items;
-      },
-    }),
-
-    workspace.registerKeymap(
-      ['n'],
-      'cairo-keymap',
-      async () => {
-        window.showMessage(`registerKeymap`);
-      },
-      { sync: false }
+  const serverOptions: ServerOptions = {
+    module: path.join(
+      path.dirname(__dirname),
+      'node_modules/cairo-ls/out/server.js',
     ),
+  }
 
-    workspace.registerAutocmd({
-      event: 'InsertLeave',
-      request: true,
-      callback: () => {
-        window.showMessage(`registerAutocmd on InsertLeave`);
-      },
-    })
-  );
-}
+  const clientOptions: LanguageClientOptions = {
+    documentSelector: ['cairo'],
+  }
 
-async function getCompletionItems(): Promise<CompleteResult> {
-  return {
-    items: [
-      {
-        word: 'TestCompletionItem 1',
-        menu: '[coc-cairo]',
-      },
-      {
-        word: 'TestCompletionItem 2',
-        menu: '[coc-cairo]',
-      },
-    ],
-  };
+  const client = new LanguageClient(
+    'coc-cairo', // the id
+    'coc-cairo', // the name of the language server
+    serverOptions,
+    clientOptions,
+  )
+
+  context.subscriptions.push(services.registLanguageClient(client))
 }

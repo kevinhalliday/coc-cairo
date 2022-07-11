@@ -18,7 +18,11 @@
     "build": "node esbuild.js",
     "prepare": "node esbuild.js"
   },
+  "dependencies": {
+    "cairo-ls": "^0.0.7"
+  },
   "devDependencies": {
+    "@types/node": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "coc.nvim": "^0.0.80",
@@ -38,18 +42,12 @@
       "type": "object",
       "title": "coc-cairo configuration",
       "properties": {
-        "coc-cairo.enabled": {
+        "cairo.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-cairo extension"
         }
       }
-    },
-    "commands": [
-      {
-        "command": "coc-cairo.Command",
-        "title": "coc-cairo command title"
-      }
-    ]
+    }
   }
 }
