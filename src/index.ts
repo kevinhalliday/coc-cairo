@@ -1,7 +1,6 @@
 import path from 'path'
 import {
   services,
-  workspace,
   ServerOptions,
   LanguageClientOptions,
   ExtensionContext,
@@ -9,11 +8,6 @@ import {
 } from 'coc.nvim'
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  const config = workspace.getConfiguration('cairo')
-  const enabled = config.get<boolean>('enabled', true)
-
-  if (!enabled) return
-
   const serverOptions: ServerOptions = {
     module: path.join(
       path.dirname(__dirname),

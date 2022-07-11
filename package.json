@@ -41,14 +41,106 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "coc-cairo configuration",
+      "title": "Cairo LS",
       "properties": {
-        "cairo.enabled": {
+        "cairols.highlightingCompiler": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "autodetect",
+            "cairo",
+            "starknet"
+          ],
+          "default": "autodetect",
+          "description": "Specifies which compiler to use for diagnostic highlighting."
+        },
+        "cairols.sourceDir": {
+          "scope": "resource",
+          "type": "string",
+          "description": "The contracts source directory within your project, for example: src"
+        },
+        "cairols.disableHintValidation": {
+          "scope": "resource",
+          "type": "string",
+          "description": "Disables hint validation for files that match the given pattern, for example: tests/**/*.cairo"
+        },
+        "cairols.useVenv": {
+          "scope": "resource",
           "type": "boolean",
           "default": true,
-          "description": "Enable coc-cairo extension"
+          "description": "Whether to use a Python virtual environment for running the Cairo/StarkNet compiler. Note: Nile's venv takes precedence over this option."
+        },
+        "cairols.venvCommand": {
+          "scope": "resource",
+          "type": "string",
+          "default": ". ~/cairo_venv/bin/activate",
+          "description": "If useVenv is true, this is the command used by the extension to source the virtual environment before running Cairo/StarkNet commands. Note: Nile's venv takes precedence over this option."
+        },
+        "cairols.nileUseVenv": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to use a Python virtual environment for running Nile."
+        },
+        "cairols.nileVenvCommand": {
+          "scope": "resource",
+          "type": "string",
+          "default": ". env/bin/activate",
+          "description": "If nileUseVenv is true, this is the command used by the extension to source the virtual environment before running Nile commands."
         }
       }
-    }
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "nile.compile"
+        },
+        {
+          "command": "nile.compile.all"
+        },
+        {
+          "command": "nile.clean"
+        },
+        {
+          "command": "pytest"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "nile.compile"
+        },
+        {
+          "command": "nile.compile.all"
+        },
+        {
+          "command": "nile.clean"
+        },
+        {
+          "command": "pytest"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nile.compile",
+        "category": "StarkNet Cairo language support",
+        "title": "Nile - Compile this contract"
+      },
+      {
+        "command": "nile.compile.all",
+        "category": "StarkNet Cairo language support",
+        "title": "Nile - Compile all"
+      },
+      {
+        "command": "nile.clean",
+        "category": "StarkNet Cairo language support",
+        "title": "Nile - Clean"
+      },
+      {
+        "command": "pytest",
+        "category": "StarkNet Cairo language support",
+        "title": "Run tests with pytest"
+      }
+    ]
   }
 }
