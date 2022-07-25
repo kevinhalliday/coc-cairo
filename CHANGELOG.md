@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.3
+
+- fixes broken completion after `from <module> import`, to allow for completion of module members
+- implements missing commands: `nile.compile`, `nile.compile.all`, `nile.clean`, and `pytest`
+- adds `cairols.serverModule` config, to allow for user specification of the language server implementation
+
 ## 0.0.2
 
 - remove `cairo` configuration namespace (`cairo.enabled`) was the only option

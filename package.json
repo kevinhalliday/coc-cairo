@@ -1,6 +1,6 @@
 {
   "name": "coc-cairo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A coc.nvim wrapper for the Cairo language server",
   "author": "Kevin Halliday <halliday.kevin7@gmail.com>",
   "repository": "https://github.com/kevinhalliday/coc-cairo",
@@ -53,6 +53,11 @@
           ],
           "default": "autodetect",
           "description": "Specifies which compiler to use for diagnostic highlighting."
+        },
+        "cairols.serverModule": {
+          "scope": "resource",
+          "type": "string",
+          "description": "Absolute path to a language server Node module to use. Useful for testing new language server implementations with this extension."
         },
         "cairols.sourceDir": {
           "scope": "resource",
