@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.4
+
+- upgrades cairols to v0.0.9
+
 ## 0.0.3
 
 - fixes broken completion after `from <module> import`, to allow for completion of module members
