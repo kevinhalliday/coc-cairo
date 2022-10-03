@@ -1,6 +1,6 @@
 {
   "name": "coc-cairo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A coc.nvim wrapper for the Cairo language server",
   "author": "Kevin Halliday <halliday.kevin7@gmail.com>",
   "repository": "https://github.com/kevinhalliday/coc-cairo",
@@ -20,7 +20,7 @@
     "prepare": "node esbuild.js"
   },
   "dependencies": {
-    "cairo-ls": "^0.0.7"
+    "cairo-ls": "^0.0.9"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
@@ -92,6 +92,12 @@
           "type": "string",
           "default": ". env/bin/activate",
           "description": "If nileUseVenv is true, this is the command used by the extension to source the virtual environment before running Nile commands."
+        },
+        "cairols.cairoPath": {
+          "scope": "resource",
+          "type": "array",
+          "default": [],
+          "description": "Additional locations to search for cairo files."
         }
       }
     },
