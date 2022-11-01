@@ -14,7 +14,7 @@ let client: LanguageClient
 
 export async function activate(context: ExtensionContext) {
   const serverModule =
-    workspace.getConfiguration('cairols').get<string>('serverModule') ??
+    workspace.getConfiguration('cairols').get<string>('serverModule') ||
     context.asAbsolutePath('node_modules/cairo-ls/out/server.js')
 
   const serverOptions: ServerOptions = {
