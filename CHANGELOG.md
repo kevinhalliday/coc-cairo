@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.0.5
+
+- fix server module discovery bug
+- update coc.nvim to 0.0.82
+
 ## 0.0.4
 
 - upgrades cairols to v0.0.9
