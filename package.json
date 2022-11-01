@@ -1,6 +1,6 @@
 {
   "name": "coc-cairo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A coc.nvim wrapper for the Cairo language server",
   "author": "Kevin Halliday <halliday.kevin7@gmail.com>",
   "repository": "https://github.com/kevinhalliday/coc-cairo",
@@ -10,7 +10,7 @@
     "coc.nvim"
   ],
   "engines": {
-    "coc": "^0.0.80"
+    "coc": "^0.0.82"
   },
   "scripts": {
     "lint": "eslint src --ext ts",
@@ -26,7 +26,7 @@
     "@types/node": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
-    "coc.nvim": "^0.0.80",
+    "coc.nvim": "^0.0.82",
     "esbuild": "^0.14.24",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",
